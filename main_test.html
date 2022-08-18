@@ -1701,75 +1701,6 @@
     <input type="hidden" id="goodsName" value="" /> 
     
         
-        <div class="popup full" id="onair-notice-popup">
-          <div class="popup-inner">
-            <div class="popup-header">
-              <h2>방송 알림 신청</h2>
-            </div>
-            <div class="popup-content">
-              <div class="type-card mt16">
-                <div class="goods-detail">
-                  <a href="#" class="thum-area">
-                    <img src="/moassets/images/_temp/thum01.png" alt="[ODV] 20FW 오디브 시그니처 폭스퍼 롱">
-                  </a>
-                  <div class="info-txt-area">
-                    <a href="#" class="txt type-line2"><strong>TV쇼핑</strong> [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴</a>
-                  </div>
-                </div>
-              </div>
-    
-              <div class="form-area">
-                <strong class="label">기간</strong>
-                <div class="form-list mb24">
-                  <div class="form-wrap">
-                    <input type="radio" name="chk_01" id="chk_01_01" value="1" checked="checked">
-                    <label for="chk_01_01"><span></span>1개월</label>
-                  </div>
-                  <div class="form-wrap">
-                    <input type="radio" name="chk_01" id="chk_01_02" value="2">
-                    <label for="chk_01_02"><span></span>2개월</label>
-                  </div>
-                  <div class="form-wrap">
-                    <input type="radio" name="chk_01" id="chk_01_03" value="3">
-                    <label for="chk_01_03"><span></span>3개월</label>
-                  </div>
-                </div>
-    
-                <strong class="label">횟수</strong>
-                <div class="form-list mb24">
-                  <div class="form-wrap">
-                    <input type="radio" name="chk_02" id="chk_02_01" value="0" checked="checked">
-                    <label for="chk_02_01"><span></span>1회</label>
-                  </div>
-                  <div class="form-wrap">
-                    <input type="radio" name="chk_02" id="chk_02_02" value="1">
-                    <label for="chk_02_02"><span></span>방송 시 마다</label>
-                  </div>
-                </div>
-    
-                <strong class="label">수신 동의</strong>
-                <div class="form-list mb24">
-                  <div class="form-wrap">
-                    <input type="checkbox" name="chk_03" id="chk_03_01" value="1" onclick="sbmOn();" checked="checked">
-                    <label for="chk_03_01"><span></span>[필수] 마케팅 정보 수신동의</label>
-                  </div>
-                </div>
-    
-                 <div class="box-gray radius">
-                  <ul class="dot-list">
-                    <li>방송 30분전에 알림톡 또는 SMS로 발송됩니다.</li>
-                    <li>오후 21:00~익일 오전 09:00 사이 방송의 경우 20:00에 안내 SMS/알림톡이 발송됩니다.</li>
-                    <li>방송알림은 최대 100개까지 등록 가능합니다.</li>
-                    <li>신청 후 최대 3개월까지 보관되며, 상품이 판매중단된 경우 자동으로 삭제됩니다.</li>
-                  </ul>
-                </div>
-              </div>
-              <button type="button" class="btn m-l black mt24" id="btnSbm" onclick="alarmSubmit()">신청하기</button>
-            </div>
-            <button type="button" class="btn-popup-close" onclick='popup.close("#onair-notice-popup")'>팝업 닫기</button>
-          </div>
-        </div>
-        
         
     
     
@@ -2994,7 +2925,7 @@
   $(function(){
     // 상단메뉴
     var swiper_tabC = new Swiper('#gnb-wrap', {
-      // initialSlide: 2,
+      initialSlide: 2,
       slidesPerView: 'auto',
       // preventClicks: true,
       // paginationClickable: true,
@@ -3013,18 +2944,34 @@
         watchSlidesProgress: true,
     });
 
+
+    //
+    // function handleClickDisable(event?: Event) {
+    //   event?.stopPropagation();
+    //   embla?.rootNode().removeEventListener('click', handleClickDisable);
+    //   }
+    //   if (startPosition !== endPosition) {
+    //     embla?.rootNode().addEventListener('click', handleClickDisable);
+    //   } else {
+    //     embla?.rootNode().removeEventListener('click', handleClickDisable);
+    //   }
+    // }, [endPosition]);
+
     // main swiper
+    // var swiper_cont = new Swiper("#main", $.extend(handleClickDisable, {
+    // slidesPerView: 1,
+    // spaceBetween: 0,
+    // thumbs: {
+    //   swiper: swiper_tabC,
+    // },
     var swiper_cont = new Swiper("#main", {
-    spaceBetween: 10,
+    // //slidesPerView: 1,
+    // //spaceBetween: 0,
     thumbs: {
-      swiper: swiper_tabC,
+     swiper: swiper_tabC,
     },
-    nested: false,
-    threshold:50,
-    //nested: true,
-    //resistance : false,
-    //noSwiping: true,
-    //paginationClickable: true,
+    // nested: true,
+    threshold:100,
   });
 
 
@@ -3365,15 +3312,6 @@
 
 
 
-<div class="popup app-down" id="app-down-popup">
-	<div class="popup-inner">
-		<strong class="tit">앱에서 혜택가를 확인 하시겠습니까?</strong>
-		<div class="btn-area half mt24">
-			<button type="button" class="btn m-l white border-b" onclick='popup.close("#app-down-popup")'>닫기</button>
-			<button type="button" class="btn m-l black border-b" onclick="goAppDown()">앱 다운 바로가기</button>
-		</div>
-	</div>
-</div>
 
 
 <script>
@@ -3945,31 +3883,6 @@
 
   
     
-      <div class="popup main mainPopupList" id="popupP00000000070">
-        <div class="popup-inner">
-          <div class="main-slider">
-            <ul class="swiper-wrapper">
-              
-                
-                  <li class="swiper-slide">
-                    <a href="/event/eventDetail/E00000000181">
-                      <img src="https://dev-img.shoppingntmall.com/popup/P00000000070/20220817152912219.jpg/dims/resize/!310x310" data-width="310" data-height="310" alt="10% 자동적립" onerror="$.eshopfront.cmm.emptyImg(this);">
-                    </a>
-                  </li>
-                
-              
-            </ul>
-            <div class="swiper-pagination"></div>
-          </div>
-        </div>
-        <div class="popup-btn-area half">
-          
-          
-            <button type="button" class="btn mainClosePopup" data-type="1" data-id="popupP00000000070" data-fnhcd="01">오늘 하루 그만보기</button>
-          
-          <button type="button" class="btn btn-popup-close mainClosePopup" data-type="2" data-id="popupP00000000070" >닫기</button>
-        </div>
-      </div>
       
     
     
@@ -3977,34 +3890,6 @@
 
 
 <!-- 앱설치 유도 팝업 -->
-
-  <div class="popup up-down moPopupList" id="moPopupP00000000072">
-    <div class="popup-inner">
-      <button type="button" class="btn-go-mobileweb moClosePopup" data-id="moPopupP00000000072">모바일 웹으로 쇼핑하기</button>
-      <div class="down-pop-slider">
-        <ul class="swiper-wrapper">
-          
-            <li class="swiper-slide">
-              <a href="javascript:goAppDown();">
-                <img src="https://dev-img.shoppingntmall.com/popup/P00000000072/20220817154047650.png/dims/resize/!360x230" data-width="360" data-height="230" alt="앱 설치 유도 팝업" onerror="$.eshopfront.cmm.emptyImg(this);">
-              </a>
-            </li>
-          
-        </ul>
-        <div class="swiper-pagination"></div>
-      </div>
-      <button type="button" class="btn-popup-close moClosePopup" data-id="moPopupP00000000072">팝업 닫기</button>
-      <script>
-        var mainSlider = new Swiper(".down-pop-slider", {
-          grabCursor: true,
-          spaceBetween: 30,
-          pagination: {
-            el: '.swiper-pagination'
-          }
-        });
-      </script>
-    </div>
-  </div>
 
 
 <!-- 엡 종료 팝업 -->
