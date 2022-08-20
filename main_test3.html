@@ -596,6 +596,7 @@
               slidesPerView: 1,
               spaceBetween: 0,
               // loop: true, 06-23 수정
+              nested: true,
               autoplay: {
                 delay: 2500,
                 disableOnInteraction: false,
@@ -3025,25 +3026,25 @@
       
     </div>
     <div class="inner_main swiper-slide">
-      <div style="width:100%;height:300px;background-color: #12c666;">page2</div>
+      <div style="width:100%;height:500px;background-color: #12c666;">page2</div>
     </div>
     <div class="inner_main swiper-slide">
-      <div style="width:100%;height:300px;background-color: #128dc6;">page3</div>
+      <div style="width:100%;height:800px;background-color: #128dc6;">page3</div>
     </div>
     <div class="inner_main swiper-slide">
-      <div style="width:100%;height:300px;background-color: #c6b412;">page4</div>
+      <div style="width:100%;height:600px;background-color: #c6b412;">page4</div>
     </div>
     <div class="inner_main swiper-slide">
-      <div style="width:100%;height:300px;background-color: #c65a12;">page5</div>
+      <div style="width:100%;height:600px;background-color: #c65a12;">page5</div>
     </div>
     <div class="inner_main swiper-slide">
-      <div style="width:100%;height:300px;background-color: #127ec6;">page6</div>
+      <div style="width:100%;height:800px;background-color: #127ec6;">page6</div>
     </div>
     <div class="inner_main swiper-slide">
-      <div style="width:100%;height:300px;background-color: #d47fee;">page7</div>
+      <div style="width:100%;height:500px;background-color: #d47fee;">page7</div>
     </div>
     <div class="inner_main swiper-slide">
-      <div style="width:100%;height:300px;background-color: #ec9e9e;">page8</div>
+      <div style="width:100%;height:600px;background-color: #ec9e9e;">page8</div>
     </div>
   </div>
 </div>
@@ -3070,25 +3071,24 @@
        watchSlidesProgress: true,
     });
 
+
+    
   //   // main swiper
      var swiper_cont = new Swiper("#main .inner_layout", {
-  //   //spaceBetween: 10,
-     thumbs: {
-       swiper: swiper_tabC,
-     },
-     nested: false,
-  //   threshold:0,
-  //   //followFinger: true,
-     autoHeight:true,
-     followFinger: true,
-     threshold:60,
-  //   //nested: true,
-  //   //resistance : false,
-  //   //noSwiping: true,
-  //   //paginationClickable: true,
-   });
 
+      slidesPerView: auto,
+      spaceBetween: 0,
+      nested: true,
+      thumbs: {
+        swiper: swiper_tabC,
+      },
 
+    });
+
+    
+    document.QuerySelector('#main .inner_layout').addEventListener('touchmove', function(e){
+      e.stopPropagation();
+    });
 
     function muCenter(target){
       //console.log(target);
