@@ -1410,8 +1410,8 @@
                     </li>
                 </ul>
               </div>
-                  <!-- <script>
-                    $(function(){
+                  <script>
+                   
                       var touchState = false;
                       // 상단메뉴
                       var onAir = new Swiper('#on-air', {
@@ -1440,8 +1440,8 @@
                       $('.btn-product-more').on('click', function(){
                         $(this).parents('.product-info-wrap').toggleClass('is-active');
                       });
-                    });
-                  </script> -->
+                  
+                  </script>
               </section>
                 
                 
@@ -2710,18 +2710,30 @@
                 
               </ul>
             </div>
-            <!-- <script>
+            <script>
+              var touchState = false;
               $(document).ready(function() {
-                if ($("#promoList li").length < 1) {
-                  $("#promoSec").remove();
-                }
+                  if ($("#promoList li").length < 1) {
+                    $("#promoSec").remove();
+                  }
+                });
+                var promotionBanner = new Swiper(".promotion-wrap", {
+                  slidesPerView: 1.7,
+                  spaceBetween: 8,
+                  grabCursor: true,
+                  nested: true,
+                  on: {
+                    touchStart:function () {
+                      touchState = true;
+                      main_inner_layout.allowTouchMove=false;
+                    
+                      setTimeout(function () {
+                          touchState=false;
+                      },100)
+                    }
+                  }
               });
-              var promotionBanner = new Swiper(".promotion-wrap", {
-                slidesPerView: 1.7,
-                spaceBetween: 8,
-                grabCursor: true
-              });
-            </script> -->
+            </script>
           </section> 
 
 
@@ -3199,22 +3211,34 @@
                   
                 
               </ul>
-              <!-- <script>
+              <script>
+                var touchState = false;
                 var recomProductRespect = new Swiper(".recom-product-list.type-respect", {
-                  slidesPerView: 2.9,
-                  spaceBetween: 12,
-                  grabCursor: true
-                });
-                
-                // 쿠폰 다운로드
-                function downloadCoupon(param, src) {
-                  dnldPromtCpn(param, function(rslt) {
-                    if (rslt === true) {
-                      //$(src).prop("disabled", true);
+                    slidesPerView: 2.9,
+                    spaceBetween: 12,
+                    grabCursor: true,
+                    nested: true,
+                    on: {
+                      touchStart:function () {
+                        touchState = true;
+                        main_inner_layout.allowTouchMove=false;
+                      
+                        setTimeout(function () {
+                            touchState=false;
+                        },100)
+                      }
                     }
                   });
-                }
-              </script> -->
+                  
+                  // 쿠폰 다운로드
+                  function downloadCoupon(param, src) {
+                    dnldPromtCpn(param, function(rslt) {
+                      if (rslt === true) {
+                        //$(src).prop("disabled", true);
+                      }
+                    });
+                  }
+              </script>
               
                 <a href='/spex/spexMain' class="btn-link-more">전체보기</a>
               
@@ -3350,14 +3374,42 @@
     #gnb-wrap > ul li.is-active > a > span{    font-weight: 700;
         color: #000;}
     #gnb-wrap > ul li.is-active > a > span::before {position: absolute;bottom: -10px;left: 0px;width: 100%;height: 3px;background: #000;content: ''}
-    #gnb-wrap > ul .swiper-slide-thumb-active > a > span{    font-weight: 700;
+    #gnb-wrap > ul .swiper-slide-active > a > span{    font-weight: 700;
         color: #000;}
-    #gnb-wrap > ul .swiper-slide-thumb-active > a > span::before {position: absolute;bottom: -10px;left: 0px;width: 100%;height: 3px;background: #000;content: ''}
+    #gnb-wrap > ul .swiper-slide-active > a > span::before {position: absolute;bottom: -10px;left: 0px;width: 100%;height: 3px;background: #000;content: ''}
 
     </style>
     
     <script>
-      
+      var main_inner_layout = new Swiper('#main',{
+          initialSlide: 2,
+          slidesPerView: 1,
+          spaceBetween: 0,
+          resizeReInit:true,
+          autoHeight:true,
+
+          // pagination:{
+          //   el: '.main-swiper-pagination',
+          //   clickable:true,
+          //   renderBullet:function(index, className) {
+          //     return '<button type="button" class="'+className+'">'+(index+1)+'번째 슬라이드</button>';
+          //   }
+          // },
+
+          // thumbs: {
+          //   swiper: swiper_tabC,
+          // },
+          
+          
+          on:{
+            touchStart:function () {
+                if( !touchState ) {
+                  main_inner_layout.allowTouchMove=true;
+                }
+            }
+          }
+              
+        });
       $(function(){
 
         
@@ -3386,136 +3438,101 @@
       // });
       
       var swiper_tabC = new Swiper('#gnb-wrap', {
-      //initialSlide: 2,
+      initialSlide: 2,
+      centeredSlides: true,
       slidesPerView: 'auto',
-      // preventClicks: true,
-      // paginationClickable: true,
-      // spaceBetween: 0,
-      //freeMode: true,
-      // pagination: false,
-      // observer: true,
-      //       observeParents: true,
-      // on: {
-      //   init: function () {
-      //     var target = $('#gnb-wrap .swiper-wrapper .swiper-slide.is-active');
-      //     muCenter(target);
-      //   }
-      // },
-       watchSlidesProgress: true,
+       //watchSlidesProgress: true,
+       slideToClickedSlide: true,
+
     });
       
 
         
-        var main_inner_layout = new Swiper('#main',{
-          initialSlide: 2,
-          slidesPerView: 1,
-          spaceBetween: 0,
-          resizeReInit:true,
-          autoHeight:true,
 
-          // pagination:{
-          //   el: '.main-swiper-pagination',
-          //   clickable:true,
-          //   renderBullet:function(index, className) {
-          //     return '<button type="button" class="'+className+'">'+(index+1)+'번째 슬라이드</button>';
+        swiper_tabC.controller.control = main_inner_layout;
+        main_inner_layout.controller.control = swiper_tabC;
+
+    
+    
+          // var touchState = false;
+          // // 상단메뉴
+          // var onAir = new Swiper('#on-air', {
+          //   slidesPerView: 1.3,/*  승규08-17 수정 */
+          //   initialSlide: 1,
+          //   spaceBetween: 12,
+          //   centeredSlides: true,
+          //   grabCursor: true,
+          //   nested: true,
+          //   on: {
+          //     slideChange: function () {
+          //       $('.product-info-wrap').removeClass('is-active');
+          //     },
+          //     touchStart:function () {
+          //       touchState = true;
+          //       main_inner_layout.allowTouchMove=false;
+              
+          //       setTimeout(function () {
+          //           touchState=false;
+          //       },100)
+          //     }
           //   }
-          // },
-
-          thumbs: {
-            swiper: swiper_tabC,
-          },
-          
-          
-          on:{
-            touchStart:function () {
-                if( !touchState ) {
-                  main_inner_layout.allowTouchMove=true;
-                }
-            }
-          }
-              
-        });
-    
-    
-          var touchState = false;
-          // 상단메뉴
-          var onAir = new Swiper('#on-air', {
-            slidesPerView: 1.3,/*  승규08-17 수정 */
-            initialSlide: 1,
-            spaceBetween: 12,
-            centeredSlides: true,
-            grabCursor: true,
-            nested: true,
-            on: {
-              slideChange: function () {
-                $('.product-info-wrap').removeClass('is-active');
-              },
-              touchStart:function () {
-                touchState = true;
-                main_inner_layout.allowTouchMove=false;
-              
-                setTimeout(function () {
-                    touchState=false;
-                },100)
-              }
-            }
             
-          });
+          // });
     
-          $('.btn-product-more').on('click', function(){
-            $(this).parents('.product-info-wrap').toggleClass('is-active');
-          });
+          // $('.btn-product-more').on('click', function(){
+          //   $(this).parents('.product-info-wrap').toggleClass('is-active');
+          // });
 
 
-          $(document).ready(function() {
-              if ($("#promoList li").length < 1) {
-                $("#promoSec").remove();
-              }
-            });
-            var promotionBanner = new Swiper(".promotion-wrap", {
-              slidesPerView: 1.7,
-              spaceBetween: 8,
-              grabCursor: true,
-              nested: true,
-              on: {
-                touchStart:function () {
-                  touchState = true;
-                  main_inner_layout.allowTouchMove=false;
+          // $(document).ready(function() {
+          //     if ($("#promoList li").length < 1) {
+          //       $("#promoSec").remove();
+          //     }
+          //   });
+          //   var promotionBanner = new Swiper(".promotion-wrap", {
+          //     slidesPerView: 1.7,
+          //     spaceBetween: 8,
+          //     grabCursor: true,
+          //     nested: true,
+          //     on: {
+          //       touchStart:function () {
+          //         touchState = true;
+          //         main_inner_layout.allowTouchMove=false;
                 
-                  setTimeout(function () {
-                      touchState=false;
-                  },100)
-                }
-              }
-          });
+          //         setTimeout(function () {
+          //             touchState=false;
+          //         },100)
+          //       }
+          //     }
+          // });
 
 
-          
-          var recomProductRespect = new Swiper(".recom-product-list.type-respect", {
-              slidesPerView: 2.9,
-              spaceBetween: 12,
-              grabCursor: true,
-              nested: true,
-              on: {
-                touchStart:function () {
-                  touchState = true;
-                  main_inner_layout.allowTouchMove=false;
+          // var touchState = false;
+          // var recomProductRespect = new Swiper(".recom-product-list.type-respect", {
+          //     slidesPerView: 2.9,
+          //     spaceBetween: 12,
+          //     grabCursor: true,
+          //     nested: true,
+          //     on: {
+          //       touchStart:function () {
+          //         touchState = true;
+          //         main_inner_layout.allowTouchMove=false;
                 
-                  setTimeout(function () {
-                      touchState=false;
-                  },100)
-                }
-              }
-            });
+          //         setTimeout(function () {
+          //             touchState=false;
+          //         },100)
+          //       }
+          //     }
+          //   });
             
-            // 쿠폰 다운로드
-            function downloadCoupon(param, src) {
-              dnldPromtCpn(param, function(rslt) {
-                if (rslt === true) {
-                  //$(src).prop("disabled", true);
-                }
-              });
-            }
+          //   // 쿠폰 다운로드
+          //   function downloadCoupon(param, src) {
+          //     dnldPromtCpn(param, function(rslt) {
+          //       if (rslt === true) {
+          //         //$(src).prop("disabled", true);
+          //       }
+          //     });
+          //   }
               
     
     
