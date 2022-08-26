@@ -1,0 +1,16 @@
+@charset 'utf-8';
+
+/* auto= height 영향으로 overflow-y: hidden 처리 부탁드립니다. */
+#main{overflow-y: hidden}
+
+/* main css 내부로 옮겨주세요. 외부여백일 경우 swiper 헛도는 현상이 생깁니다. */
+#main{padding-top:0;position:static;padding-bottom:0;border-bottom:0}
+#main .main_inner_section{padding-top: 100px;/* min-height: 700px; */position: relative;padding-bottom: 100px;border-bottom: 8px solid #f5f5f5}
+
+/* layout 구조가 변경되어 자식선택된 css 변경 필요 */
+#main .main_inner_section > section:not(.full), #main > .tab-cont-wrap{padding-left:16px;padding-right:16px; min-width: 0;}
+
+ /* swiper tab menu 활성화 css */ 
+#gnb-wrap > ul .swiper-slide-thumb-active > a > span{    font-weight: 700;
+    color: #000;}
+#gnb-wrap > ul .swiper-slide-thumb-active > a > span::before {position: absolute;bottom: -10px;left: 0px;width: 100%;height: 3px;background: #000;content: ''}
