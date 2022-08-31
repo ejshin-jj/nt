@@ -23002,8 +23002,547 @@
         </div><!-- // main_inner_section -->
 
         <div class="main_inner_section swiper-slide"><!--- [D] 8.쇼마트 -->
-          <div style="width:100%;height:1000px;background-color: #12c666;">8.쇼마트</div>
-        </div><!-- // main_inner_section -->
+					
+					<section class="ctg-tab-sticky auto-sticky">
+						<section class="type-line-no-pd">
+							<div class="ctg-tab-wrap expand swiper-initialized swiper-horizontal swiper-pointer-events swiper-free-mode">
+								<ul class="ctg-tab swiper-wrapper" id="swiper-wrapper-33b0814a269711a3" aria-live="polite" style="transform: translate3d(0px, 0px, 0px); transition-duration: 1ms;">
+									<li class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 3" style="width: 75px;">
+										<input type="radio" class="ipt" name="filter01" id="filter_01" checked="">
+										<label for="filter_01">
+											<span class="ico_wrap">
+												<img src="/moassets/images/contents/ico_ctg_best.png" alt="">
+											</span>
+											<span class="tit">TOP 100</span>
+										</label>
+									</li>
+									<li class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 3" style="width: 75px;">
+										<input type="radio" class="ipt" name="filter01" id="filter_02">
+										<label for="filter_02">
+											<span class="ico_wrap">
+												<img src="/moassets/images/contents/ico_ctg_tvshopping.png" alt="">
+											</span>
+											<span class="tit">TV 쇼핑</span>
+										</label>
+									</li>
+									<li class="swiper-slide is-active" role="group" aria-label="3 / 3" style="width: 75px;">
+										<input type="radio" class="ipt" name="filter01" id="filter_03">
+										<label for="filter_03">
+											<span class="ico_wrap">
+												<img src="/moassets/images/contents/ico_ctg_fashion.png" alt="">
+											</span>
+											<span class="tit">패션의류</span>
+										</label>
+									</li>
+									
+								</ul>
+							<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+							<script>
+								$(function(){
+									// 상단메뉴
+									var touchState = false;
+									var ctgTab = new Swiper('.ctg-tab-wrap', {
+										initialSlide: 0,
+										slidesPerView: 4.8,
+										preventClicks: true,
+										paginationClickable: true,
+										spaceBetween: 0,
+										freeMode: true,
+										pagination: false,
+										observer: true,
+										observeParents: true,
+										nested: true,
+										on: {
+											init: function () {
+												var target = $('.ctg-tab-wrap .swiper-wrapper .swiper-slide.is-active');
+												ctgTabCenter(target);
+											},
+											touchStart:function () {
+                                				touchState = true;
+                                				main_inner_layout.allowTouchMove=false;
+                                				setTimeout(function () {
+                                    				touchState=false;
+                                				},100)
+                              				}
+										}
+									});
+
+									// var $snbSwiperItem = $('.ctg-tab-wrap .swiper-wrapper .swiper-slide input');
+									// $snbSwiperItem.click(function(){
+									// 	var target = $(this).parent();
+									// 	$snbSwiperItem.parent().removeClass('is-active')
+									// 	target.addClass('is-active');
+									// 	ctgTabCenter(target);
+									// });
+
+									function ctgTabCenter(target){
+										console.log(target);
+										var snbwrap = $('.ctg-tab-wrap .swiper-wrapper');
+										var targetPos = target.position();
+										var box = $('.ctg-tab-wrap');
+										var boxHarf = box.width()/2;
+										var pos;
+										var listWidth=0;
+										snbwrap.find('.swiper-slide').each(function(){ listWidth += $(this).outerWidth(); })
+										var selectTargetPos = targetPos.left + target.outerWidth()/2;
+										if (selectTargetPos <= boxHarf) { // left
+											pos = 0;
+										}else if ((listWidth - selectTargetPos) <= boxHarf) { //right
+											pos = listWidth-box.width();
+										}else {
+											pos = selectTargetPos - boxHarf;
+										}
+										setTimeout(function(){snbwrap.css({
+											"transform": "translate3d("+ (pos*-1) +"px, 0, 0)",
+											"transition-duration": "1ms" // 초 수정 07-28
+										})}, 200);
+									}
+								});
+							</script>
+						</section>
+					</section>
+					
+					
+					<div class="show-mart type-search-filter">
+						<div class="top-area cf">
+							<div class="total-search-area">
+								<div class="ipt-wrap">
+									<input type="text" name="" class="ipt delete" id="" placeholder="에서 장보기 상품을 검색해보세요." title="검색어 입력" value="">
+								<button type="button" class="btn-delete" style="right: 16px;"><span class="hidden">해당 필드 입력값 삭제</span></button></div>
+								<input type="submit" value="검색">
+							</div>
+						</div>
+					</div>
+					
+
+					
+					<section class="type-line full"><!-- 06-20 full 클래스 추가 -->
+						<div class="bnr-combine type-showmart"><!-- 06-23 type-showmart 클래스 추가 -->
+							<div class="block">
+								<div class="img-wrap" style="background-image:url('/moassets/images/_temp/showmart/thum10.png')">
+									<span class="hidden">관리자 배너 상품이미지 설명</span>
+								</div>
+								
+								<div class="bnr-float-group">
+									<strong class="tit">
+										오늘은 냉장고 채우는 날 !
+										<em>맛있는 고기와 신선한 채소</em>
+									</strong>
+									
+									<div class="float-prd-list shopping-wrap">
+										<ul class="shopping-list inner_scroll">
+											<li>
+												<div class="goods-detail type-link bottom bottom">
+													<div class="thum-area">
+														<img src="/moassets/images/_temp/thum01.png" alt="[ODV] 20FW 오디브 시그니처 폭스퍼 롱">
+													</div>
+													<div class="info-txt-area">
+														<p class="txt type-line2">[ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴</p>
+														<p class="price-percent">
+															<strong>58%</strong>
+															<span>22,298,000</span>
+															<em>원</em>
+														</p>
+														<div class="btn-area">
+															
+															<div class="purchase-quantity cf">
+																<button class="btn-quantity-minus">빼기</button>
+																<input type="text" class="input-number" value="80">
+																<button class="btn-quantity-plus">더하기</button>
+															</div>
+															
+															<button type="button" class="btn s-m border-db only-ico"><span class="hidden">알림</span><span class="cart"></span></button>
+														</div>
+													</div>
+													<a href="#" class="link-wrap">상품바로가기</a>
+												</div>
+											</li>
+											<li>
+												<div class="goods-detail type-link bottom bottom">
+													<div class="thum-area">
+														<img src="/moassets/images/_temp/thum01.png" alt="[ODV] 20FW 오디브 시그니처 폭스퍼 롱">
+													</div>
+													<div class="info-txt-area">
+														<p class="txt type-line2">[ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴</p>
+														<p class="price-percent">
+															<strong>58%</strong>
+															<span>22,298,000</span>
+															<em>원</em>
+														</p>
+														<div class="btn-area full">
+															<button type="button" class="btn s-m border-db has-icon"><span class="ico-cart">장바구니</span></button>
+														</div>
+													</div>
+													<a href="#" class="link-wrap">상품바로가기</a>
+												</div>
+											</li>
+											<li>
+												<div class="goods-detail type-link bottom bottom">
+													<div class="thum-area">
+														<img src="/moassets/images/_temp/thum01.png" alt="[ODV] 20FW 오디브 시그니처 폭스퍼 롱">
+													</div>
+													<div class="info-txt-area">
+														<p class="txt type-line2">[ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴</p>
+														<p class="price-percent">
+															<strong>58%</strong>
+															<span>22,298,000</span>
+															<em>원</em>
+														</p>
+														<div class="btn-area">
+															
+															<div class="purchase-quantity cf">
+																<button class="btn-quantity-minus">빼기</button>
+																<input type="text" class="input-number" value="80">
+																<button class="btn-quantity-plus">더하기</button>
+															</div>
+															
+															<button type="button" class="btn s-m border-db only-ico"><span class="hidden">알림</span><span class="cart"></span></button>
+														</div>
+													</div>
+													<a href="#" class="link-wrap">상품바로가기</a>
+												</div>
+											</li>
+											<li>
+												<div class="goods-detail type-link bottom bottom">
+													<div class="thum-area">
+														<img src="/moassets/images/_temp/thum01.png" alt="[ODV] 20FW 오디브 시그니처 폭스퍼 롱">
+													</div>
+													<div class="info-txt-area">
+														<p class="txt type-line2">[ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴</p>
+														<p class="price-percent">
+															<strong>58%</strong>
+															<span>22,298,000</span>
+															<em>원</em>
+														</p>
+														<div class="btn-area">
+															
+															<div class="purchase-quantity cf">
+																<button class="btn-quantity-minus">빼기</button>
+																<input type="text" class="input-number" value="80">
+																<button class="btn-quantity-plus">더하기</button>
+															</div>
+															
+															<button type="button" class="btn s-m border-db only-ico"><span class="hidden">알림</span><span class="cart"></span></button>
+														</div>
+													</div>
+													<a href="#" class="link-wrap">상품바로가기</a>
+												</div>
+											</li>
+											<li>
+												<div class="goods-detail type-link bottom bottom">
+													<div class="thum-area">
+														<img src="/moassets/images/_temp/thum01.png" alt="[ODV] 20FW 오디브 시그니처 폭스퍼 롱">
+													</div>
+													<div class="info-txt-area">
+														<p class="txt type-line2">[ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴</p>
+														<p class="price-percent">
+															<strong>58%</strong>
+															<span>22,298,000</span>
+															<em>원</em>
+														</p>
+														<div class="btn-area">
+															
+															<div class="purchase-quantity cf">
+																<button class="btn-quantity-minus">빼기</button>
+																<input type="text" class="input-number" value="80">
+																<button class="btn-quantity-plus">더하기</button>
+															</div>
+															
+															<button type="button" class="btn s-m border-db only-ico"><span class="hidden">알림</span><span class="cart"></span></button>
+														</div>
+													</div>
+													<a href="#" class="link-wrap">상품바로가기</a>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							
+							<div class="block">
+								<div class="img-wrap" style="background-image:url('/moassets/images/_temp/showmart/thum12.png')">
+									<span class="hidden">관리자 배너 상품이미지 설명</span>
+								</div>
+								
+								<div class="bnr-float-group">
+									<strong class="tit">
+										세제와 섬유유연제 초특가
+										<em>더 깨끗하게 빨래하는 방법</em>
+									</strong>
+									
+									<div class="float-prd-list shopping-wrap">
+										<ul class="shopping-list inner_scroll">
+											<li>
+												<div class="goods-detail type-link bottom bottom">
+													<div class="thum-area">
+														<img src="/moassets/images/_temp/thum01.png" alt="[ODV] 20FW 오디브 시그니처 폭스퍼 롱">
+													</div>
+													<div class="info-txt-area">
+														<p class="txt type-line2">[ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴</p>
+														<p class="price-percent">
+															<strong>58%</strong>
+															<span>22,298,000</span>
+															<em>원</em>
+														</p>
+														<div class="btn-area">
+															
+															<div class="purchase-quantity cf">
+																<button class="btn-quantity-minus">빼기</button>
+																<input type="text" class="input-number" value="80">
+																<button class="btn-quantity-plus">더하기</button>
+															</div>
+															
+															<button type="button" class="btn s-m border-db only-ico"><span class="hidden">알림</span><span class="cart"></span></button>
+														</div>
+													</div>
+													<a href="#" class="link-wrap">상품바로가기</a>
+												</div>
+											</li>
+											<li>
+												<div class="goods-detail type-link bottom bottom">
+													<div class="thum-area">
+														<img src="/moassets/images/_temp/thum01.png" alt="[ODV] 20FW 오디브 시그니처 폭스퍼 롱">
+													</div>
+													<div class="info-txt-area">
+														<p class="txt type-line2">[ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴</p>
+														<p class="price-percent">
+															<strong>58%</strong>
+															<span>22,298,000</span>
+															<em>원</em>
+														</p>
+														<div class="btn-area full">
+															<button type="button" class="btn s-m border-db has-icon"><span class="ico-cart">장바구니</span></button>
+														</div>
+													</div>
+													<a href="#" class="link-wrap">상품바로가기</a>
+												</div>
+											</li>
+											<li>
+												<div class="goods-detail type-link bottom bottom">
+													<div class="thum-area">
+														<img src="/moassets/images/_temp/thum01.png" alt="[ODV] 20FW 오디브 시그니처 폭스퍼 롱">
+													</div>
+													<div class="info-txt-area">
+														<p class="txt type-line2">[ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴</p>
+														<p class="price-percent">
+															<strong>58%</strong>
+															<span>22,298,000</span>
+															<em>원</em>
+														</p>
+														<div class="btn-area">
+															
+															<div class="purchase-quantity cf">
+																<button class="btn-quantity-minus">빼기</button>
+																<input type="text" class="input-number" value="80">
+																<button class="btn-quantity-plus">더하기</button>
+															</div>
+															
+															<button type="button" class="btn s-m border-db only-ico"><span class="hidden">알림</span><span class="cart"></span></button>
+														</div>
+													</div>
+													<a href="#" class="link-wrap">상품바로가기</a>
+												</div>
+											</li>
+											<li>
+												<div class="goods-detail type-link bottom bottom">
+													<div class="thum-area">
+														<img src="/moassets/images/_temp/thum01.png" alt="[ODV] 20FW 오디브 시그니처 폭스퍼 롱">
+													</div>
+													<div class="info-txt-area">
+														<p class="txt type-line2">[ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴</p>
+														<p class="price-percent">
+															<strong>58%</strong>
+															<span>22,298,000</span>
+															<em>원</em>
+														</p>
+														<div class="btn-area">
+															
+															<div class="purchase-quantity cf">
+																<button class="btn-quantity-minus">빼기</button>
+																<input type="text" class="input-number" value="80">
+																<button class="btn-quantity-plus">더하기</button>
+															</div>
+															
+															<button type="button" class="btn s-m border-db only-ico"><span class="hidden">알림</span><span class="cart"></span></button>
+														</div>
+													</div>
+													<a href="#" class="link-wrap">상품바로가기</a>
+												</div>
+											</li>
+											<li>
+												<div class="goods-detail type-link bottom bottom">
+													<div class="thum-area">
+														<img src="/moassets/images/_temp/thum01.png" alt="[ODV] 20FW 오디브 시그니처 폭스퍼 롱">
+													</div>
+													<div class="info-txt-area">
+														<p class="txt type-line2">[ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴</p>
+														<p class="price-percent">
+															<strong>58%</strong>
+															<span>22,298,000</span>
+															<em>원</em>
+														</p>
+														<div class="btn-area">
+															
+															<div class="purchase-quantity cf">
+																<button class="btn-quantity-minus">빼기</button>
+																<input type="text" class="input-number" value="80">
+																<button class="btn-quantity-plus">더하기</button>
+															</div>
+															
+															<button type="button" class="btn s-m border-db only-ico"><span class="hidden">알림</span><span class="cart"></span></button>
+														</div>
+													</div>
+													<a href="#" class="link-wrap">상품바로가기</a>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+							<div class="block">
+								
+								
+								<div class="bnr-float-group">
+									<strong class="tit">
+										세제와 섬유유연제 초특가
+										<em>더 깨끗하게 빨래하는 방법</em>
+									</strong>
+									
+									<div class="float-prd-list shopping-wrap">
+										<ul class="shopping-list inner_scroll">
+											<li>
+												<div class="goods-detail type-link bottom bottom">
+													<div class="thum-area">
+														<img src="/moassets/images/_temp/thum01.png" alt="[ODV] 20FW 오디브 시그니처 폭스퍼 롱">
+													</div>
+													<div class="info-txt-area">
+														<p class="txt type-line2">[ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴</p>
+														<p class="price-percent">
+															<strong>58%</strong>
+															<span>22,298,000</span>
+															<em>원</em>
+														</p>
+														<div class="btn-area">
+															
+															<div class="purchase-quantity cf">
+																<button class="btn-quantity-minus">빼기</button>
+																<input type="text" class="input-number" value="80">
+																<button class="btn-quantity-plus">더하기</button>
+															</div>
+															
+															<button type="button" class="btn s-m border-db only-ico"><span class="hidden">알림</span><span class="cart"></span></button>
+														</div>
+													</div>
+													<a href="#" class="link-wrap">상품바로가기</a>
+												</div>
+											</li>
+											<li>
+												<div class="goods-detail type-link bottom bottom">
+													<div class="thum-area">
+														<img src="/moassets/images/_temp/thum01.png" alt="[ODV] 20FW 오디브 시그니처 폭스퍼 롱">
+													</div>
+													<div class="info-txt-area">
+														<p class="txt type-line2">[ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴</p>
+														<p class="price-percent">
+															<strong>58%</strong>
+															<span>22,298,000</span>
+															<em>원</em>
+														</p>
+														<div class="btn-area full">
+															<button type="button" class="btn s-m border-db has-icon"><span class="ico-cart">장바구니</span></button>
+														</div>
+													</div>
+													<a href="#" class="link-wrap">상품바로가기</a>
+												</div>
+											</li>
+											<li>
+												<div class="goods-detail type-link bottom bottom">
+													<div class="thum-area">
+														<img src="/moassets/images/_temp/thum01.png" alt="[ODV] 20FW 오디브 시그니처 폭스퍼 롱">
+													</div>
+													<div class="info-txt-area">
+														<p class="txt type-line2">[ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴</p>
+														<p class="price-percent">
+															<strong>58%</strong>
+															<span>22,298,000</span>
+															<em>원</em>
+														</p>
+														<div class="btn-area">
+															
+															<div class="purchase-quantity cf">
+																<button class="btn-quantity-minus">빼기</button>
+																<input type="text" class="input-number" value="80">
+																<button class="btn-quantity-plus">더하기</button>
+															</div>
+															
+															<button type="button" class="btn s-m border-db only-ico"><span class="hidden">알림</span><span class="cart"></span></button>
+														</div>
+													</div>
+													<a href="#" class="link-wrap">상품바로가기</a>
+												</div>
+											</li>
+											<li>
+												<div class="goods-detail type-link bottom bottom">
+													<div class="thum-area">
+														<img src="/moassets/images/_temp/thum01.png" alt="[ODV] 20FW 오디브 시그니처 폭스퍼 롱">
+													</div>
+													<div class="info-txt-area">
+														<p class="txt type-line2">[ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴</p>
+														<p class="price-percent">
+															<strong>58%</strong>
+															<span>22,298,000</span>
+															<em>원</em>
+														</p>
+														<div class="btn-area">
+															
+															<div class="purchase-quantity cf">
+																<button class="btn-quantity-minus">빼기</button>
+																<input type="text" class="input-number" value="80">
+																<button class="btn-quantity-plus">더하기</button>
+															</div>
+															
+															<button type="button" class="btn s-m border-db only-ico"><span class="hidden">알림</span><span class="cart"></span></button>
+														</div>
+													</div>
+													<a href="#" class="link-wrap">상품바로가기</a>
+												</div>
+											</li>
+											<li>
+												<div class="goods-detail type-link bottom bottom">
+													<div class="thum-area">
+														<img src="/moassets/images/_temp/thum01.png" alt="[ODV] 20FW 오디브 시그니처 폭스퍼 롱">
+													</div>
+													<div class="info-txt-area">
+														<p class="txt type-line2">[ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴 [ODV] 20FW 오디브 시그니처 폭스퍼 롱블려 블랴</p>
+														<p class="price-percent">
+															<strong>58%</strong>
+															<span>22,298,000</span>
+															<em>원</em>
+														</p>
+														<div class="btn-area">
+															
+															<div class="purchase-quantity cf">
+																<button class="btn-quantity-minus">빼기</button>
+																<input type="text" class="input-number" value="80">
+																<button class="btn-quantity-plus">더하기</button>
+															</div>
+															
+															<button type="button" class="btn s-m border-db only-ico"><span class="hidden">알림</span><span class="cart"></span></button>
+														</div>
+													</div>
+													<a href="#" class="link-wrap">상품바로가기</a>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					
+				</div>
+        <!-- // main_inner_section -->
 
         <div class="main_inner_section swiper-slide"><!--- [D] 9.기획전 -->
           <div style="width:100%;height:1000px;background-color: #c1ff2f;">9.기획전</div>
@@ -23038,7 +23577,8 @@
 
     <style>
       /* auto= height 영향으로 overflow-y: hidden 처리 부탁드립니다. */
-      #main{overflow-y: hidden}
+      body{overflow: hidden}
+      body{overflow-y: scroll}
 
       /* main css 내부로 옮겨주세요. 외부여백일 경우 swiper 헛도는 현상이 생깁니다. */
       #main{padding-top:0;position:static;padding-bottom:0;border-bottom:0}
@@ -23087,6 +23627,13 @@
       });
 
     main_inner_layout.controller.control = swiper_tabC;
+
+
+    $(document).on('touchstart touchmove','.inner_scroll',function(){
+      if(main_inner_layout.allowTouchMove == true){
+        main_inner_layout.allowTouchMove = false;
+      }
+    });
 
   </script>
     
